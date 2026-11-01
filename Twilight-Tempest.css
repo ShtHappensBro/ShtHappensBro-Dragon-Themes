@@ -1,0 +1,324 @@
+/**
+ * @name Twilight Tempest
+ * @author ShtHappensBro
+ * @version 2.4
+ * @description Electric purple terminal theme with a glowing dragon background.
+ */
+
+/* Custom terminal fonts */
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+/* ==========================================
+   USER SETTINGS: BRIGHTNESS CONTROL
+   Quick CSS (Vencord/BD): :root { --bg-brightness: 1.15 !important; }
+   ========================================== */
+:root {
+    --bg-brightness: 1.15; 
+}
+
+/* Toggle Discord to Light Mode to auto-boost brightness */
+.theme-light {
+    --bg-brightness: 1.8 !important;
+}
+
+/* Aggressive font override. */
+body, textarea, input, button, p, h1, h2, h3, h4, h5, h6, a, strong, em, li, 
+[class*="messageContent_"], [class*="markup_"], [class*="username_"], 
+[class*="channelName_"], [class*="name_"], [class*="title_"], [class*="topic_"], 
+[class*="label_"], [class*="text-"], [class*="nickname_"], [class*="roleName_"] {
+    font-family: "Share Tech Mono", "Consolas", monospace !important;
+}
+
+/* Theme Variables */
+:root, .theme-dark, .theme-darker, .theme-midnight, .visual-refresh {
+    --custom-theme-background: transparent !important;
+    --app-frame-background: transparent !important;
+    --background-base-low: transparent !important;
+    --background-base-lower: transparent !important;
+    --background-base-lowest: transparent !important;
+    --background-primary: transparent !important;
+    --background-secondary: transparent !important;
+    --background-tertiary: transparent !important;
+    --channeltextarea-background: transparent !important;
+    --input-background: transparent !important;
+    
+    --text-normal: #ffffff !important; 
+    --header-primary: #bf00ff !important; 
+    --text-link: #9d00ff !important;
+    --interactive-normal: #e0b3ff !important;
+    --interactive-hover: #00ffff !important; 
+}
+
+/* --- BACKGROUND --- */
+
+html {
+    background-color: #05000a !important; 
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: url('https://i.imgur.com/gf63Btc.jpeg') center / 85% auto no-repeat !important;
+    
+    filter: 
+        hue-rotate(260deg) 
+        saturate(1.6)
+        brightness(var(--bg-brightness)) 
+        contrast(1.05) !important; 
+        
+    z-index: -2 !important;
+    pointer-events: none;
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(10, 0, 20, 0.05) 0%, rgba(10, 0, 20, 0.25) 50%, rgba(0, 0, 0, 0.8) 100%) !important; 
+    z-index: -1 !important; 
+    pointer-events: none;
+}
+
+#app-mount {
+    background: transparent !important;
+    position: relative !important;
+    z-index: 1 !important; 
+}
+
+/* --- TYPOGRAPHY & EFFECTS --- */
+
+@keyframes pulseOpacity {
+    0% { opacity: 0.8; }
+    50% { opacity: 1; }
+    100% { opacity: 0.8; }
+}
+
+#app-mount::before {
+    content: "TWILIGHT TEMPEST";
+    position: fixed;
+    top: 11%; 
+    left: 50%;
+    transform: translate(-50%, -50%) translateZ(0); 
+    font-family: "VT323", monospace !important; 
+    font-size: 6.5vw; 
+    font-weight: normal !important; 
+    letter-spacing: 4px; 
+    color: #bf00ff !important;
+    text-shadow: 
+        2px 2px 0px #000, 
+        -2px -2px 0px #000, 
+        2px -2px 0px #000, 
+        -2px 2px 0px #000,
+        0 0 10px #bf00ff, 
+        0 0 20px #9d00ff !important;
+    animation: pulseOpacity 3s infinite ease-in-out !important; 
+    will-change: opacity;
+    pointer-events: none;
+    z-index: 0 !important; 
+    white-space: nowrap;
+}
+
+#app-mount::after {
+    content: "Made By ShtHappensBro"; 
+    position: fixed;
+    top: 8px;         
+    left: 80px;        
+    color: #bf00ff !important; 
+    -webkit-text-stroke: 1px #00ffff !important; 
+    font-family: "Share Tech Mono", monospace !important; 
+    font-size: 16px;
+    font-weight: 900; 
+    letter-spacing: 2px;
+    text-shadow: 1px 1px 0px #000000, 0 0 10px #00ffff !important;
+    animation: pulseOpacity 3s infinite ease-in-out !important;
+    will-change: opacity;
+    pointer-events: none;
+    z-index: 99999 !important; 
+}
+
+/* --- LAYOUT & CONTAINERS --- */
+
+.bg__960e4, .layers__160d8, .layer__960e4, .app__160d8,
+.chat_f75fb0, .container__34c2c, 
+.messagesWrapper_, .scroller_, .form_f75fb0, 
+.formWithLoadedChatInput_f75fb0, .chatGradient__36d07 {
+    background: transparent !important;
+    background-image: none !important;
+    box-shadow: none !important;
+}
+
+[class*="chatContent_"] {
+    background-color: rgba(10, 0, 20, 0.15) !important; 
+}
+
+[class*="message_"]:hover {
+    background-color: rgba(0, 0, 0, 0.7) !important; 
+    border-radius: 4px;
+    box-shadow: inset 2px 0 0 #bf00ff !important;
+}
+
+[class*="messageContent_"], [class*="username_"] {
+    color: #ffffff !important;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 1) !important;
+}
+
+/* --- SIDEBARS & MENUS --- */
+
+.standardSidebarView__23e6b,
+.sidebarRegion__23e6b,
+.contentRegion__23e6b,
+.contentColumn__23e6b,
+.layer_f7d46a {
+    background: transparent !important;
+}
+
+.standardSidebarView__23e6b {
+    background-color: rgba(5, 0, 10, 0.9) !important;
+    backdrop-filter: blur(5px) !important; 
+}
+
+.standardSidebarView__23e6b .contentRegion__23e6b .card_ {
+    background-color: rgba(20, 0, 30, 0.7) !important;
+    border: 1px solid rgba(191, 0, 255, 0.3) !important;
+}
+
+[class*="sidebar_"], [class*="guilds_"] {
+    background-color: rgba(5, 0, 10, 0.7) !important; 
+}
+
+[class*="members_"] {
+    background-color: rgba(10, 0, 20, 0.85) !important; 
+    border-left: 1px solid rgba(191, 0, 255, 0.2) !important;
+}
+
+[class*="members_"] [class*="name_"], 
+[class*="members_"] [class*="username_"],
+[class*="members_"] [class*="roleName_"],
+[class*="membersGroup_"] {
+    color: #ffffff !important;
+    text-shadow: 1px 1px 2px #000000 !important;
+}
+
+[class*="sidebar_"] [class*="containerDefault_"] {
+    background-color: rgba(15, 0, 25, 0.8) !important; 
+    border: 1px solid rgba(191, 0, 255, 0.4) !important;
+    border-radius: 4px !important;
+    margin: 4px 8px !important;
+    transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+[class*="sidebar_"] [class*="containerDefault_"] [class*="name_"] {
+    color: #bf00ff !important;
+    font-weight: bold !important;
+}
+
+[class*="sidebar_"] [class*="containerDefault_"]:has([class*="link_"]) {
+    background-color: transparent !important;
+    border: none !important;
+    margin: 0 !important;
+}
+
+[class*="sidebar_"] [class*="containerDefault_"]:has([class*="link_"]) [class*="name_"] {
+    color: var(--interactive-normal) !important;
+    font-weight: normal !important;
+}
+
+[class*="sidebar_"] [class*="containerDefault_"]:not(:has([class*="link_"])):hover {
+    border-color: #00ffff !important;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.4) !important;
+}
+
+[class*="sidebar_"] [class*="selected_"] {
+    background-color: rgba(191, 0, 255, 0.2) !important;
+    box-shadow: inset 3px 0 0 #bf00ff !important;
+}
+
+/* --- BOTTOM LEFT PANEL FIX --- */
+
+[class*="sidebar_"] [class*="scroller_"] {
+    padding-bottom: 110px !important; 
+}
+
+[class*="panels_"] {
+    background-color: rgba(10, 0, 20, 0.95) !important; 
+    border-top: 1px solid rgba(191, 0, 255, 0.4) !important;
+}
+
+[class*="connection_"], 
+[class*="container__37e49"],
+[class*="actionButtons_"] {
+    padding: 0 !important;
+    margin: 0 !important;
+    height: auto !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+[class*="actionButtons_"] [class*="button_"] {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+[class*="actionButtons_"] [class*="button_"]:hover {
+    background: rgba(191, 0, 255, 0.2) !important;
+}
+
+/* --- INPUT BOX & SCROLLBARS --- */
+
+.channelTextArea_f75fb0 {
+    background-color: #05000a !important;
+    border: 1px solid #bf00ff !important;
+    border-radius: 8px !important;
+    overflow: hidden !important; 
+    box-shadow: inset 0 0 10px rgba(191, 0, 255, 0.3), 0 0 15px rgba(191, 0, 255, 0.2) !important;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.channelTextArea_f75fb0:focus-within {
+    border-color: #00ffff !important;
+    box-shadow: inset 0 0 10px rgba(0, 255, 255, 0.3), 0 0 20px rgba(0, 255, 255, 0.4) !important;
+}
+
+.attachWrapper_, .attachButton_, .attachButtonInner_, 
+.themedBackground_, .scrollableContainer_, .textArea_, .buttons_ {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.textArea_ {
+    color: #ffffff !important;
+}
+
+[class*="placeholder_"] {
+    color: #e0b3ff !important; 
+    opacity: 0.8 !important;
+}
+
+.channelTextArea_f75fb0 svg {
+    color: #bf00ff !important;
+    fill: #bf00ff !important;
+    transition: fill 0.2s ease;
+}
+
+.channelTextArea_f75fb0 svg:hover {
+    fill: #00ffff !important;
+}
+
+::-webkit-scrollbar { 
+    width: 8px; 
+}
+
+::-webkit-scrollbar-thumb { 
+    background: #bf00ff !important; 
+    border-radius: 4px; 
+    box-shadow: 0 0 5px #bf00ff; 
+}
+
+::-webkit-scrollbar-track { 
+    background: transparent !important; 
+}

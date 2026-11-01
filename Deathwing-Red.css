@@ -1,0 +1,320 @@
+/**
+ * @name Deathwing Red
+ * @author ShtHappensBro
+ * @version 2.0
+ * @description Red and black terminal theme with a glowing Deathwing background.
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+/* ==========================================
+   USER SETTINGS: BRIGHTNESS CONTROL
+   Quick CSS (Vencord/BD): :root { --bg-brightness: 1.5 !important; }
+   ========================================== */
+:root {
+    --bg-brightness: 1.5; 
+}
+
+/* Toggle Discord to Light Mode to auto-boost brightness */
+.theme-light {
+    --bg-brightness: 2.0 !important;
+}
+
+/* Force the terminal font everywhere. */
+body, textarea, input, button, p, h1, h2, h3, h4, h5, h6, a, strong, em, li, 
+[class*="messageContent_"], [class*="markup_"], [class*="username_"], 
+[class*="channelName_"], [class*="name_"], [class*="title_"], [class*="topic_"], 
+[class*="label_"], [class*="text-"], [class*="nickname_"], [class*="roleName_"] {
+    font-family: "Share Tech Mono", "Consolas", monospace !important;
+}
+
+:root, .theme-dark, .theme-darker, .theme-midnight, .visual-refresh {
+    --custom-theme-background: transparent !important;
+    --app-frame-background: transparent !important;
+    --background-base-low: transparent !important;
+    --background-base-lower: transparent !important;
+    --background-base-lowest: transparent !important;
+    --background-primary: transparent !important;
+    --background-secondary: transparent !important;
+    --background-tertiary: transparent !important;
+    --channeltextarea-background: transparent !important;
+    --input-background: transparent !important;
+    
+    --text-normal: #ffffff !important; 
+    --header-primary: #ff3333 !important;
+    --text-link: #ff0000 !important;
+    --interactive-normal: #ff9999 !important;
+    --interactive-hover: #00aa00 !important;
+}
+
+/* --- BACKGROUND --- */
+
+html {
+    background-color: #000000 !important; 
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: url('https://i.imgur.com/gf63Btc.jpeg') center / 85% auto no-repeat !important;
+    
+    filter: 
+        brightness(var(--bg-brightness)) 
+        contrast(1.15)
+        saturate(1.1) !important; 
+        
+    z-index: -2 !important;
+    pointer-events: none;
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.35) 50%, rgba(0, 0, 0, 0.85) 100%) !important; 
+    z-index: -1 !important; 
+    pointer-events: none;
+}
+
+#app-mount {
+    background: transparent !important;
+    position: relative !important;
+    z-index: 1 !important; 
+}
+
+/* --- TYPOGRAPHY & EFFECTS --- */
+
+@keyframes pulseOpacity {
+    0% { opacity: 0.8; }
+    50% { opacity: 1; }
+    100% { opacity: 0.8; }
+}
+
+#app-mount::before {
+    content: "Deathwing";
+    position: fixed;
+    top: 9%; 
+    left: 50%;
+    transform: translate(-50%, -50%) translateZ(0); 
+    font-family: "VT323", monospace !important; 
+    font-size: 6vw; 
+    font-weight: normal !important; 
+    letter-spacing: 2px; 
+    color: #ff0000 !important;
+    text-shadow: 
+        2px 2px 0px #000, 
+        -2px -2px 0px #000, 
+        2px -2px 0px #000, 
+        -2px 2px 0px #000,
+        0 0 10px #ff0000, 
+        0 0 20px #ff0000 !important;
+    animation: pulseOpacity 3s infinite ease-in-out !important; 
+    will-change: opacity;
+    pointer-events: none;
+    z-index: 0 !important; 
+    white-space: nowrap;
+}
+
+#app-mount::after {
+    content: "Made By ShtHappensBro"; 
+    position: fixed;
+    top: 8px;         
+    left: 80px;        
+    color: #ff0000 !important; 
+    -webkit-text-stroke: 1px #00aa00 !important;
+    font-family: "Share Tech Mono", monospace !important; 
+    font-size: 16px;
+    font-weight: 900; 
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 0px #000000, 0 0 10px #00aa00, 0 0 20px #ff3333 !important;
+    animation: pulseOpacity 3s infinite ease-in-out !important;
+    will-change: opacity;
+    pointer-events: none;
+    z-index: 99999 !important; 
+}
+
+/* --- LAYOUT & CONTAINERS --- */
+
+.bg__960e4, .layers__160d8, .layer__960e4, .app__160d8,
+.chat_f75fb0, .container__34c2c, 
+.messagesWrapper_, .scroller_, .form_f75fb0, 
+.formWithLoadedChatInput_f75fb0, .chatGradient__36d07 {
+    background: transparent !important;
+    background-image: none !important;
+    box-shadow: none !important;
+}
+
+[class*="chatContent_"] {
+    background-color: rgba(0, 0, 0, 0.25) !important; 
+}
+
+[class*="message_"]:hover {
+    background-color: rgba(0, 0, 0, 0.6) !important; 
+    border-radius: 4px;
+}
+
+[class*="messageContent_"], [class*="username_"] {
+    color: #ffffff !important;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 1) !important;
+}
+
+/* --- SIDEBARS & MENUS --- */
+
+.standardSidebarView__23e6b,
+.sidebarRegion__23e6b,
+.contentRegion__23e6b,
+.contentColumn__23e6b,
+.layer_f7d46a {
+    background: transparent !important;
+}
+
+.standardSidebarView__23e6b {
+    background-color: rgba(0, 0, 0, 0.85) !important;
+    backdrop-filter: blur(5px) !important; 
+}
+
+.standardSidebarView__23e6b .contentRegion__23e6b .card_ {
+    background-color: rgba(10, 0, 0, 0.7) !important;
+    border: 1px solid rgba(255, 0, 0, 0.3) !important;
+}
+
+[class*="sidebar_"], [class*="guilds_"] {
+    background-color: rgba(0, 0, 0, 0.6) !important; 
+}
+
+[class*="members_"] {
+    background-color: rgba(10, 0, 0, 0.85) !important; 
+    border-left: 1px solid rgba(255, 0, 0, 0.2) !important;
+}
+
+[class*="members_"] [class*="name_"], 
+[class*="members_"] [class*="username_"],
+[class*="members_"] [class*="roleName_"],
+[class*="membersGroup_"] {
+    color: #ffffff !important;
+    text-shadow: 1px 1px 2px #000000 !important;
+}
+
+[class*="sidebar_"] [class*="containerDefault_"] {
+    background-color: rgba(5, 5, 5, 0.8) !important; 
+    border: 1px solid rgba(255, 0, 0, 0.4) !important;
+    border-radius: 4px !important;
+    margin: 4px 8px !important;
+    transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+[class*="sidebar_"] [class*="containerDefault_"] [class*="name_"] {
+    color: #ff3333 !important;
+    font-weight: bold !important;
+}
+
+[class*="sidebar_"] [class*="containerDefault_"]:has([class*="link_"]) {
+    background-color: transparent !important;
+    border: none !important;
+    margin: 0 !important;
+}
+
+[class*="sidebar_"] [class*="containerDefault_"]:has([class*="link_"]) [class*="name_"] {
+    color: var(--interactive-normal) !important;
+    font-weight: normal !important;
+}
+
+[class*="sidebar_"] [class*="containerDefault_"]:not(:has([class*="link_"])):hover {
+    border-color: #00aa00 !important;
+    box-shadow: 0 0 10px rgba(0, 170, 0, 0.4) !important;
+}
+
+[class*="sidebar_"] [class*="selected_"] {
+    background-color: #1e90ff !important;
+    box-shadow: 0 0 15px rgba(30, 144, 255, 0.6) !important;
+}
+
+/* --- BOTTOM LEFT PANEL FIX --- */
+
+[class*="sidebar_"] [class*="scroller_"] {
+    padding-bottom: 110px !important; 
+}
+
+[class*="panels_"] {
+    background-color: rgba(10, 0, 0, 0.95) !important; 
+    border-top: 1px solid rgba(255, 0, 0, 0.4) !important;
+}
+
+[class*="connection_"], 
+[class*="container__37e49"],
+[class*="actionButtons_"] {
+    padding: 0 !important;
+    margin: 0 !important;
+    height: auto !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+[class*="actionButtons_"] [class*="button_"] {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+[class*="actionButtons_"] [class*="button_"]:hover {
+    background: rgba(255, 0, 0, 0.2) !important;
+}
+
+/* --- INPUT BOX & SCROLLBARS --- */
+
+.channelTextArea_f75fb0 {
+    background-color: #000000 !important;
+    border: 1px solid #ff0000 !important;
+    border-radius: 8px !important;
+    overflow: hidden !important; 
+    box-shadow: inset 0 0 10px rgba(255, 0, 0, 0.3), 0 0 15px rgba(255, 0, 0, 0.2) !important;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.channelTextArea_f75fb0:focus-within {
+    border-color: #00aa00 !important;
+    box-shadow: inset 0 0 10px rgba(0, 170, 0, 0.3), 0 0 20px rgba(0, 170, 0, 0.4) !important;
+}
+
+.attachWrapper_, .attachButton_, .attachButtonInner_, 
+.themedBackground_, .scrollableContainer_, .textArea_, .buttons_ {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.textArea_ {
+    color: #ffffff !important;
+}
+
+[class*="placeholder_"] {
+    color: #ff6666 !important; 
+    opacity: 0.8 !important;
+}
+
+.channelTextArea_f75fb0 svg {
+    color: #ff3333 !important;
+    fill: #ff3333 !important;
+    transition: fill 0.2s ease;
+}
+
+.channelTextArea_f75fb0 svg:hover {
+    fill: #00aa00 !important;
+}
+
+::-webkit-scrollbar { 
+    width: 8px; 
+}
+
+::-webkit-scrollbar-thumb { 
+    background: #ff0000 !important; 
+    border-radius: 4px; 
+    box-shadow: 0 0 5px #ff0000; 
+}
+
+::-webkit-scrollbar-track { 
+    background: transparent !important; 
+}
